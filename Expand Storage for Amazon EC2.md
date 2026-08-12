@@ -110,7 +110,7 @@ The initial `lsblk` output showed the existing 8 GiB root volume:
 lsblk
 ```
 
-Example output:
+output:
 
 ```text
 NAME          MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
