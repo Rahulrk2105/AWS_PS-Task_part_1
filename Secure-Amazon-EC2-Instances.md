@@ -196,7 +196,8 @@ I left the outbound rule unchanged because the Bastion was already working and t
 
 ## 📸 Security Group Screenshot
 
-![Bastion Security Group](images/security-group.png)
+<img width="1635" height="695" alt="image" src="https://github.com/user-attachments/assets/e62292ed-2a98-48cc-a200-15990a51385f" />
+
 
 ## 🧠 What I Learned
 
@@ -276,7 +277,8 @@ Therefore, I did **not create a new IAM Role**, because the required IAM configu
 
 ## 📸 IAM Role Screenshot
 
-![Bastion IAM Role](images/iam-role.png)
+<img width="1520" height="400" alt="image" src="https://github.com/user-attachments/assets/65fe8953-1a2a-4fff-b93c-d49c3ee4d725" />
+
 
 ## 🔄 IAM Permission Flow
 
@@ -345,9 +347,6 @@ IMDSv2: Required
 
 Therefore, I did not need to make any additional changes.
 
-## 📸 IMDSv2 Screenshot
-
-![IMDSv2 Required](images/imdsv2.png)
 
 ## 🧠 What I Learned
 
@@ -457,7 +456,8 @@ aws/ebs
 
 ## 📸 Encrypted Snapshot
 
-![Encrypted Snapshot](images/encrypted-snapshot.png)
+<img width="1585" height="603" alt="image" src="https://github.com/user-attachments/assets/1c1870eb-5a6a-4fb7-bceb-ed8e4e81a524" />
+
 
 ## 🔄 Snapshot Encryption Flow
 
@@ -526,7 +526,8 @@ aws/ebs
 
 ## 📸 Encrypted EBS Volume
 
-![Encrypted EBS Volume](images/encrypted-volume-created.png)
+<img width="1586" height="724" alt="image" src="https://github.com/user-attachments/assets/ad0023be-30b3-40a6-8e99-b7bffadc6ad8" />
+
 
 ---
 
@@ -594,11 +595,7 @@ vol-0613d87f538d2163c
       +---- us-east-1d
       +---- Encrypted
       +---- KMS: aws/ebs
-```
 
-## 📸 Encrypted Root Volume Attached
-
-![Encrypted Root Volume Attached](images/encrypted-root-volume-attached.png)
 
 ---
 
@@ -1098,144 +1095,7 @@ Started Bastion
 Verified Successfully
 ```
 
----
 
-# ⭐ Interview Explanation
-
-> I secured my existing Bastion EC2 by restricting SSH access through its Security Group, verifying the IAM Role with `AmazonSSMManagedInstanceCore`, confirming that IMDSv2 was required, and replacing the unencrypted root EBS volume with an encrypted EBS volume created from an encrypted snapshot using the `aws/ebs` KMS key.
-
----
-
-# 📝 Quick Revision
-
-```text
-1. Security Group
-   |
-   +---- Controls Network Access
-   |
-   +---- SSH :22
-   |
-   +---- My IP Only
-
-2. IAM Role
-   |
-   +---- Controls AWS Permissions
-   |
-   +---- Bastion-role
-   |
-   +---- AmazonSSMManagedInstanceCore
-
-3. IMDSv2
-   |
-   +---- Secures Metadata Access
-   |
-   +---- Required
-
-4. EBS Encryption
-   |
-   +---- Protects Data at Rest
-   |
-   +---- Old Volume: Unencrypted
-   |
-   +---- Snapshot Created
-   |
-   +---- Encrypted Snapshot
-   |
-   +---- Encrypted EBS Volume
-   |
-   +---- Attached as /dev/xvda
-   |
-   +---- KMS: aws/ebs
-```
-
----
-
-# 📌 Final Security Checklist
-
-```text
-Security Group
-     |
-     v
-SSH restricted to trusted IP
-     |
-     v
-✅
-
-IAM Role
-     |
-     v
-Bastion-role
-     |
-     v
-AmazonSSMManagedInstanceCore
-     |
-     v
-✅
-
-IMDSv2
-     |
-     v
-Required
-     |
-     v
-✅
-
-EBS Encryption
-     |
-     v
-Encrypted Snapshot
-     |
-     v
-Encrypted EBS
-     |
-     v
-Encrypted Root Volume
-     |
-     v
-✅
-```
-
----
-
-# 🏆 Final Result
-
-## 🔐 Secure Amazon EC2 Instances — COMPLETED 100% 🎉
-
-The Bastion EC2 is now secured using:
-
-```text
-Security Group
-      +
-IAM Role
-      +
-IMDSv2
-      +
-EBS Encryption
-```
-
-The four security layers provide:
-
-```text
-Security Group
-      |
-      v
-Network Protection
-
-IAM Role
-      |
-      v
-AWS Permission Protection
-
-IMDSv2
-      |
-      v
-Metadata Protection
-
-EBS Encryption
-      |
-      v
-Data-at-Rest Protection
-```
 
 ---
 
