@@ -185,7 +185,8 @@ This confirmed that Session Manager was successfully connected to the EC2.
 
 # 📸 Session Manager Screenshot
 
-![Session Manager Connected](images/session-manager.png)
+<img width="1907" height="738" alt="image" src="https://github.com/user-attachments/assets/e643af0f-4d3c-44db-a3df-2ea03b81f5ae" />
+
 
 ---
 
@@ -258,11 +259,6 @@ The output also showed that the SSM Agent successfully connected using the EC2 i
 
 ---
 
-# 📸 SSM Agent Screenshot
-
-![SSM Agent Running](images/ssm-agent.png)
-
----
 
 # 🧠 What I Learned
 
@@ -350,7 +346,7 @@ attached.
 
 # 📸 IAM Role Screenshot
 
-![Bastion IAM Role](images/iam-role.png)
+<img width="1568" height="795" alt="image" src="https://github.com/user-attachments/assets/01ed799d-e64a-441e-8326-4f265e19a80f" />
 
 ---
 
@@ -528,11 +524,6 @@ Therefore, there were no IAM users available for configuring an IAM-user-specifi
 
 ---
 
-# 📸 IAM Users Screenshot
-
-![IAM Users](images/iam-users.png)
-
----
 
 # 🛠️ Step 2 – Check Root User MFA
 
@@ -564,7 +555,8 @@ This confirmed that the root user already had a Virtual MFA device configured.
 
 # 📸 Root MFA Screenshot
 
-![Root MFA](images/root-mfa.png)
+<img width="1553" height="854" alt="image" src="https://github.com/user-attachments/assets/8772a74f-bcfe-4885-9f79-bee534d9e5b1" />
+
 
 ---
 
@@ -645,121 +637,6 @@ The complete flow we configured and verified is:
 
 ---
 
-# 🧪 Hands-On Verification Summary
-
-## Session Manager
-
-Session result:
-
-```text
-sh-5.2$
-```
-
-Status:
-
-```text
-✅ Connected
-```
-
-## Session User
-
-Command:
-
-```bash
-whoami
-```
-
-Result:
-
-```text
-ssm-user
-```
-
-Status:
-
-```text
-✅ Verified
-```
-
-## Hostname
-
-Command:
-
-```bash
-hostname
-```
-
-Result:
-
-```text
-ip-10-0-0-254.ec2.internal
-```
-
-Status:
-
-```text
-✅ Bastion verified
-```
-
-## SSM Agent
-
-Command:
-
-```bash
-sudo systemctl status amazon-ssm-agent
-```
-
-Result:
-
-```text
-Active: active (running)
-```
-
-Status:
-
-```text
-✅ Running
-```
-
-## IAM Role
-
-```text
-Bastion-role
-```
-
-Status:
-
-```text
-✅ Verified
-```
-
-## IAM Policy
-
-```text
-AmazonSSMManagedInstanceCore
-```
-
-Status:
-
-```text
-✅ Verified
-```
-
-## Root MFA
-
-```text
-Virtual MFA
-Rahul-device
-```
-
-Status:
-
-```text
-✅ Already configured
-```
-
----
-
 # 📊 Final Task Verification
 
 | Requirement | What We Did | Status |
@@ -777,209 +654,3 @@ Status:
 
 ---
 
-# 🧠 What I Learned
-
-## 1. Session Manager
-
-Session Manager allows me to access an EC2 instance through AWS Systems Manager.
-
-```text
-Laptop
-   |
-   v
-Systems Manager
-   |
-   v
-Session Manager
-   |
-   v
-Bastion EC2
-```
-
-## 2. SSM Agent
-
-The SSM Agent runs on the EC2 and communicates with Systems Manager.
-
-```text
-Systems Manager
-      |
-      v
-SSM Agent
-      |
-      v
-EC2
-```
-
-## 3. IAM Role
-
-The EC2 uses an IAM Role rather than storing long-term AWS credentials.
-
-```text
-EC2
- |
- v
-Bastion-role
- |
- v
-AmazonSSMManagedInstanceCore
-```
-
-## 4. IAM Policy
-
-An IAM Policy controls what actions an identity is allowed or denied to perform.
-
-```text
-IAM Policy
-    |
-    +---- Allow
-    |
-    +---- Deny
-```
-
-## 5. Security Credentials
-
-Security credentials are used to authenticate an identity.
-
-Examples include:
-
-```text
-Password
-MFA
-Access Keys
-```
-
-## 6. MFA
-
-MFA provides an additional authentication factor.
-
-Our root account already had:
-
-```text
-Virtual MFA
-```
-
-configured.
-
----
-
-# ⭐ Interview Explanation
-
-> I enabled secure administrative access to my existing Bastion EC2 using AWS Systems Manager Session Manager. The Bastion already had the `Bastion-role` IAM role with `AmazonSSMManagedInstanceCore`, so the SSM Agent could communicate with Systems Manager. I successfully started a Session Manager shell, verified the `ssm-user`, hostname, and SSM Agent status. I also checked the account's IAM users and found there were no IAM users, while the root account already had a Virtual MFA device configured.
-
----
-
-# 📝 Quick Revision
-
-```text
-1. Session Manager
-   |
-   +---- Connect to EC2 without SSH
-   |
-   +---- Existing Bastion
-   |
-   +---- Session successful
-   |
-   +---- ssm-user
-
-
-2. IAM
-   |
-   +---- Bastion-role
-   |
-   +---- AmazonSSMManagedInstanceCore
-   |
-   +---- SSM Agent uses role credentials
-
-
-3. MFA
-   |
-   +---- Root User
-   |
-   +---- Virtual MFA
-   |
-   +---- Already configured
-   |
-   +---- IAM Users = 0
-```
-
----
-
-# 🔐 Final Security Architecture
-
-```text
-                    AWS ACCOUNT
-                         |
-                         v
-                  Root User / Admin
-                         |
-                    Password + MFA
-                         |
-                         v
-                  AWS Management
-                         |
-                         v
-                Systems Manager
-                         |
-                         v
-                 Session Manager
-                         |
-                         v
-                 Bastion-Server
-                         |
-                         v
-                    SSM Agent
-                         |
-                         v
-                  Bastion-role
-                         |
-                         v
-             AmazonSSMManagedInstanceCore
-```
-
----
-
-# 🏆 Final Result
-
-## 🔐 Enable Secure Administrative Access to Amazon EC2 — COMPLETED 100% ✅
-
-The task was successfully completed for the existing environment.
-
-### Completed:
-
-```text
-✅ Session Manager connection
-✅ SSM Agent verification
-✅ ssm-user verification
-✅ Bastion hostname verification
-✅ Bastion IAM Role verification
-✅ AmazonSSMManagedInstanceCore verification
-✅ IAM Users verification
-✅ Root Virtual MFA verification
-```
-
-The most important practical result was:
-
-```text
-AWS Console
-     |
-     v
-Systems Manager
-     |
-     v
-Session Manager
-     |
-     v
-Bastion EC2
-     |
-     v
-ssm-user
-     |
-     v
-Shell Access
-```
-
----
-
-# 🚀 TASK COMPLETED
-
-## 🔐 Enable Secure Administrative Access to Amazon EC2 — 100% COMPLETE
