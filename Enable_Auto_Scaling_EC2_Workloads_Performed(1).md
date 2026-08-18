@@ -1,4 +1,11 @@
 # ⚙️ Enable Auto Scaling for Amazon EC2 Workloads
+![AWS](https://img.shields.io/badge/AWS-EC2-orange)
+![Auto Scaling](https://img.shields.io/badge/AWS-Auto%20Scaling-blue)
+![VPC](https://img.shields.io/badge/AWS-VPC-purple)
+![CloudWatch](https://img.shields.io/badge/AWS-CloudWatch-green)
+![IAM](https://img.shields.io/badge/AWS-IAM-red)
+
+---
 
 ## 📖 Project Overview
 
@@ -99,7 +106,7 @@ The VPC was used as the network for the Auto Scaling environment.
 
 ### 📸 VPC Screenshot
 
-_Add screenshot here._
+<img width="1611" height="830" alt="image" src="https://github.com/user-attachments/assets/38f28a22-72f3-45cd-b4ca-95e61890c5f3" />
 
 ---
 
@@ -123,7 +130,7 @@ I enabled automatic assignment of public IPv4 addresses for the public subnets.
 
 ### 📸 Subnet Screenshot
 
-_Add screenshot here._
+<img width="1596" height="875" alt="image" src="https://github.com/user-attachments/assets/c10cc0cf-3960-4a56-82e6-c90c655e2685" />
 
 ---
 
@@ -135,7 +142,7 @@ The Internet Gateway provided internet connectivity for the public subnets.
 
 ### 📸 Internet Gateway Screenshot
 
-_Add screenshot here._
+<img width="1618" height="727" alt="image" src="https://github.com/user-attachments/assets/eb0da78e-c2ba-4b57-8bb8-d0c487162564" />
 
 ---
 
@@ -154,7 +161,7 @@ Both public subnets were associated with this route table.
 
 ### 📸 Route Table Screenshot
 
-_Add screenshot here._
+<img width="1631" height="794" alt="image" src="https://github.com/user-attachments/assets/5f5f8c77-b985-4e45-8b96-bf1e7935309b" />
 
 ---
 
@@ -177,7 +184,8 @@ The default outbound rule was retained.
 
 ### 📸 Security Group Screenshot
 
-_Add screenshot here._
+<img width="1638" height="664" alt="image" src="https://github.com/user-attachments/assets/f0bb4181-5e52-425a-a09d-207397481433" />
+
 
 ---
 
@@ -228,7 +236,8 @@ EOF
 
 ### 📸 Launch Template Screenshot
 
-_Add screenshot here._
+<img width="1621" height="870" alt="image" src="https://github.com/user-attachments/assets/5ee9f0a7-ac3d-4bdf-a8fd-3a55842a7a42" />
+
 
 ---
 
@@ -265,7 +274,7 @@ Maximum Capacity: 2
 
 ### 📸 Auto Scaling Group Screenshot
 
-_Add screenshot here._
+<img width="1609" height="805" alt="image" src="https://github.com/user-attachments/assets/98343cea-4bb7-4a15-9f58-5e7b8acd3b7a" />
 
 ---
 
@@ -279,10 +288,6 @@ Health Check Grace Period: 300 seconds
 ```
 
 The Auto Scaling Group used the EC2 health status to maintain healthy instances.
-
-### 📸 Health Check Screenshot
-
-_Add screenshot here._
 
 ---
 
@@ -302,7 +307,8 @@ The policy was enabled successfully.
 
 ### 📸 Target Tracking Screenshot
 
-_Add screenshot here._
+<img width="975" height="582" alt="image" src="https://github.com/user-attachments/assets/5c110780-0c92-45b3-9e91-a1f3803e067d" />
+
 
 ---
 
@@ -322,7 +328,9 @@ The instance was launched in one of the configured public subnets and received a
 
 ### 📸 Initial Instance Screenshot
 
-_Add screenshot here._
+
+<img width="1609" height="875" alt="image" src="https://github.com/user-attachments/assets/79251758-5254-4329-9d76-4ecb58fad4a0" />
+
 
 ---
 
@@ -342,7 +350,7 @@ This verified that the web server was running successfully.
 
 ### 📸 Application Screenshot
 
-_Add screenshot here._
+<img width="634" height="341" alt="image" src="https://github.com/user-attachments/assets/d764a070-e8b0-4913-bb58-ecbef5468c5a" />
 
 ---
 
@@ -356,9 +364,6 @@ ssh -i asg-launch-key.pem ec2-user@<PUBLIC-IP>
 
 The SSH connection was successful.
 
-### 📸 SSH Screenshot
-
-_Add screenshot here._
 
 ---
 
@@ -388,7 +393,8 @@ The CPU utilization increased above the configured 50% target.
 
 ### 📸 CPU Load Screenshot
 
-_Add screenshot here._
+<img width="1898" height="710" alt="image" src="https://github.com/user-attachments/assets/4c11ecb8-c696-49d7-924b-d73c7c85abd7" />
+
 
 ---
 
@@ -449,7 +455,8 @@ The instances were distributed across the configured Availability Zones.
 
 ### 📸 Automatic Scale-Out Screenshot
 
-_Add screenshot here._
+<img width="1619" height="818" alt="image" src="https://github.com/user-attachments/assets/0b878138-bb04-4549-a194-8bae92e3fe2c" />
+
 
 ---
 
