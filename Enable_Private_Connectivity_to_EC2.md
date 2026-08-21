@@ -86,7 +86,8 @@ Private Subnet
 
 ### 📸 VPC Screenshot
 
-_Add screenshot here._
+<img width="1580" height="858" alt="image" src="https://github.com/user-attachments/assets/6fb68b0f-3195-4fe1-aff5-280810c07808" />
+
 
 ---
 
@@ -114,7 +115,11 @@ The private subnet did not have a default route to the Internet Gateway.
 
 ### 📸 Subnet Screenshot
 
-_Add screenshot here._
+ <img width="1586" height="747" alt="image" src="https://github.com/user-attachments/assets/c1112fd6-efcc-48a6-b538-dcbf6e1a24c9" />
+
+  
+ <img width="1595" height="857" alt="image" src="https://github.com/user-attachments/assets/d0d28ead-a100-4fea-ba21-88668073c265" />
+
 
 ---
 
@@ -133,11 +138,13 @@ The public subnet was associated with this route table.
 
 ### 📸 Internet Gateway Screenshot
 
-_Add screenshot here._
+<img width="1607" height="731" alt="image" src="https://github.com/user-attachments/assets/d3b38e40-cc17-42b9-b5f1-eeb746155d85" />
+
 
 ### 📸 Public Route Table Screenshot
 
-_Add screenshot here._
+<img width="1580" height="737" alt="image" src="https://github.com/user-attachments/assets/36d21c6e-a7a1-4dba-8edc-3f4a5719689b" />
+
 
 ---
 
@@ -166,8 +173,7 @@ There was no:
 route in the private route table.
 
 ### 📸 Private Route Table Screenshot
-
-_Add screenshot here._
+<img width="1573" height="743" alt="image" src="https://github.com/user-attachments/assets/f2f4eec3-ae39-4ba8-a707-7a281b2364ae" />
 
 ---
 
@@ -198,8 +204,11 @@ The endpoint Security Group allowed:
 The endpoint Security Group was reused for all three Systems Manager Interface Endpoints.
 
 ### 📸 Security Group Screenshots
+<img width="1575" height="747" alt="image" src="https://github.com/user-attachments/assets/f1bf47e3-8cfe-4146-bdec-bcd7961600ea" />
 
-_Add screenshot here._
+
+<img width="1582" height="740" alt="image" src="https://github.com/user-attachments/assets/9904f10f-0f04-4a4e-8ca7-289056336253" />
+
 
 ---
 
@@ -235,7 +244,8 @@ Amazon S3
 
 ### 📸 S3 Endpoint Screenshot
 
-_Add screenshot here._
+<img width="1606" height="494" alt="image" src="https://github.com/user-attachments/assets/eb0319b3-63c0-440f-83fb-c156e9fdb4a7" />
+
 
 ---
 
@@ -257,7 +267,8 @@ I attached this IAM role to the private EC2 instance.
 
 ### 📸 IAM Role Screenshot
 
-_Add screenshot here._
+<img width="1521" height="808" alt="image" src="https://github.com/user-attachments/assets/0db2b19a-27a7-48c7-a41f-2c4f6bee3790" />
+
 
 ---
 
@@ -284,14 +295,6 @@ The endpoints were placed in the private subnet and associated with:
 ```text
 SSM-Endpoint-SG
 ```
-
-Private DNS was enabled.
-
-### 📸 SSM Endpoint Screenshots
-
-_Add screenshots here._
-
----
 
 # 9️⃣ Launch Private EC2
 
@@ -324,7 +327,7 @@ The instance passed its status checks.
 
 ### 📸 Private EC2 Screenshot
 
-_Add screenshot here._
+<img width="1572" height="796" alt="image" src="https://github.com/user-attachments/assets/1131933e-43a5-4f9d-baf0-f98f6c806311" />
 
 ---
 
@@ -350,12 +353,6 @@ The result was:
 ssm-user
 ```
 
-### 📸 Session Manager Screenshot
-
-_Add screenshot here._
-
----
-
 # 1️⃣1️⃣ Verify Internet Access Is Blocked
 
 From the private EC2 Session Manager terminal, I tested Internet connectivity:
@@ -372,9 +369,6 @@ curl: (28) Failed to connect to checkip.amazonaws.com port 443
 
 This confirmed that the private EC2 did not have direct Internet connectivity.
 
-### 📸 Internet Connectivity Test Screenshot
-
-_Add screenshot here._
 
 ---
 
@@ -390,9 +384,6 @@ Bastion-role
 
 After the permission was added, the private EC2 was able to upload an object to the S3 bucket.
 
-### 📸 IAM S3 Permission Screenshot
-
-_Add screenshot here._
 
 ---
 
@@ -416,9 +407,7 @@ Output:
 Private EC2 to S3 through VPC Endpoint
 ```
 
-### 📸 Test File Screenshot
 
-_Add screenshot here._
 
 ---
 
@@ -436,9 +425,6 @@ The upload completed successfully:
 upload: ../../tmp/test.txt to s3://pvt-connectivity-bkt/test.txt
 ```
 
-### 📸 S3 Upload Screenshot
-
-_Add screenshot here._
 
 ---
 
@@ -458,7 +444,8 @@ The result showed:
 
 ### 📸 S3 Verification Screenshot
 
-_Add screenshot here._
+<img width="1255" height="367" alt="image" src="https://github.com/user-attachments/assets/fc07a5cd-85c0-4361-bbf6-f5343177473e" />
+
 
 ---
 
